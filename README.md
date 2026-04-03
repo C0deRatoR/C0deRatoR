@@ -1,6 +1,6 @@
 # Hey, I'm Yash 
 
-**AI/ML Developer · Mumbai, India**
+**AI/ML Student · Mumbai, India**
 
 2nd-year B.Tech student in CS with AI & ML at Atlas SkillTech University. I build things that actually work — end-to-end ML pipelines, NLP platforms, computer vision apps, and self-hosted infrastructure. I care about shipping real projects, not just collecting tutorials.
 
