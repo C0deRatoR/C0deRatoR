@@ -10,7 +10,7 @@
 
 ```python
 stack = {
-    "languages"  : ["Python", "SQL", "Java:],
+    "languages"  : ["Python", "SQL", "Java"],
     "ml_dl"      : ["scikit-learn", "PyTorch", "YOLOv8", "HuggingFace Transformers"],
     "backend"    : ["FastAPI", "Flask"],
     "devops"     : ["Docker", "Docker Compose", "Linux", "NeoVim(LazyVim)", "Git"],
