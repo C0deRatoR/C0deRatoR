@@ -1,4 +1,4 @@
-# Hey, I'm Yash 👋
+# Hey, I'm Yash 
 
 **AI/ML Developer · Mumbai, India**
 
@@ -10,11 +10,10 @@
 
 ```python
 stack = {
-    "languages"  : ["Python", "SQL", "JavaScript", "Bash"],
+    "languages"  : ["Python", "SQL", "Java:],
     "ml_dl"      : ["scikit-learn", "PyTorch", "YOLOv8", "HuggingFace Transformers"],
-    "nlp_audio"  : ["OpenAI Whisper", "KeyBERT", "VADER", "Google Gemini API"],
     "backend"    : ["FastAPI", "Flask"],
-    "devops"     : ["Docker", "Docker Compose", "Linux", "Nginx", "Git"],
+    "devops"     : ["Docker", "Docker Compose", "Linux", "NeoVim(LazyVim)", "Git"],
     "data"       : ["Pandas", "NumPy", "Matplotlib"],
     "tools"      : ["Streamlit", "Jupyter", "FFmpeg", "Grafana"],
     "learning"   : ["LangChain", "Deep Learning", "Proxmox", "Ollama"],
