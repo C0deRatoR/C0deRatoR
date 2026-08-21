@@ -19,6 +19,16 @@
 
 <sub>AI engineering internship · May 2026 – present · the repos are private, so — by capability</sub>
 
+**AI hiring pipeline** — end to end  
+Application intake, resume parsing out of object storage, role-specific aptitude banks scored
+deterministically, then a Gemini rubric pass: resume/role fit, MCQ, open Q&A, and logistics/culture
+as separate sub-scores rather than one opaque number. Experience thresholds gate ranking per role,
+an AI-assistance flag routes suspect written answers to human review instead of silently penalising
+them, and transient model failures retry on backoff with batch rescoring for anything left pending.
+Decision emails then go out on status change — templated, idempotent (never twice), individually
+pausable, and replying lands with a human, not a bot.  
+`Gemini 2.5 Flash` `Next.js` `Supabase` `Resend` `TypeScript`
+
 **RAG in production**  
 Fastify + pgvector retrieval on Voyage AI embeddings, grounded and source-constrained.
 Deterministic math kept outside the model — the LLM writes the summary, never the numbers.
@@ -30,11 +40,6 @@ Python LiveKit Cloud worker: STT → LLM → TTS, running a structured multi-tur
 Endpointing and latency tuning, Hindi/Hinglish handling, region-aware persistence — the worker
 POSTs to an API instead of dialling Postgres cross-region.  
 `LiveKit` `Deepgram` `Sarvam` `Gemini` `Groq` `ElevenLabs`
-
-**LLM scoring**  
-Applicant scoring 0–100 across five dimensions, role-specific question banks, experience-gated
-ranking, automated decisions behind explicit guards.  
-`Gemini` `Claude` `Next.js` `Supabase`
 
 **Multimodal extraction**  
 Gemini OCR turning photographed cards into structured records, meeting-note extraction, offline
