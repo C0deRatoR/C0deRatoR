@@ -1,65 +1,84 @@
-# Yash Patil
+<h1 align="center">Yash Patil</h1>
 
-B.Tech CS (AI & ML) student. I build things that ship — RAG pipelines, voice agents,
-recommender systems, audio intelligence.
+<p align="center">
+  B.Tech CS (AI &amp; ML) · I build things that ship
+</p>
 
-<sub>[LinkedIn](https://linkedin.com/in/yashkpatil) · [Email](mailto:c0derator@proton.me)</sub>
+<p align="center">
+  <code>RAG</code> · <code>Voice Agents</code> · <code>LLM Pipelines</code> · <code>Recommenders</code>
+</p>
+
+<p align="center">
+  <a href="https://linkedin.com/in/yashkpatil">LinkedIn</a> ·
+  <a href="mailto:c0derator@proton.me">Email</a>
+</p>
 
 ---
 
 ## Work
 
-AI engineering internship, May 2026 – present. The repos are private, so — by capability:
+<sub>AI engineering internship · May 2026 – present · the repos are private, so — by capability</sub>
 
-**RAG in production**
-Fastify + pgvector retrieval API on Voyage AI embeddings, grounded and source-constrained.
+**RAG in production**  
+Fastify + pgvector retrieval on Voyage AI embeddings, grounded and source-constrained.
 Deterministic math kept outside the model — the LLM writes the summary, never the numbers.
-Namespace-isolated corpora per product line, review-gated ingestion, retrieval evals.
+Namespace-isolated corpora per product line, review-gated ingestion, retrieval evals.  
+`Fastify` `pgvector` `Voyage AI` `Postgres`
 
-**Voice agents**
-Python LiveKit Cloud worker: Deepgram/Sarvam STT → Gemini/Groq → ElevenLabs TTS, running a
-structured multi-turn qualification flow. Endpointing and latency tuning, Hindi/Hinglish handling,
-region-aware persistence (the worker POSTs to an API instead of dialling Postgres cross-region).
+**Voice agents**  
+Python LiveKit Cloud worker: STT → LLM → TTS, running a structured multi-turn qualification flow.
+Endpointing and latency tuning, Hindi/Hinglish handling, region-aware persistence — the worker
+POSTs to an API instead of dialling Postgres cross-region.  
+`LiveKit` `Deepgram` `Sarvam` `Gemini` `Groq` `ElevenLabs`
 
-**LLM scoring**
+**LLM scoring**  
 Applicant scoring 0–100 across five dimensions, role-specific question banks, experience-gated
-ranking, automated decisions behind explicit guards.
+ranking, automated decisions behind explicit guards.  
+`Gemini` `Claude` `Next.js` `Supabase`
 
-**Multimodal extraction**
+**Multimodal extraction**  
 Gemini OCR turning photographed cards into structured records, meeting-note extraction, offline
-inference as the fallback when OCR misses fields. `pdfplumber` document pipelines on scheduled CI.
+inference as the fallback when OCR misses fields. Document pipelines on scheduled CI.  
+`Gemini` `pdfplumber` `Dexie` `GitHub Actions`
 
-**Agentic automation**
+**Agentic automation**  
 Webhook-driven state machines that qualify before they answer, RAG-backed first-touch replies,
-n8n orchestration, Playwright scraping for corpus building.
+n8n orchestration, Playwright scraping for corpus building.  
+`n8n` `Playwright` `Fastify` `Webhooks`
 
-**Guardrails, learned the hard way**
-Deterministic math separated from generation. Auditable reference data instead of asking a model
-for numbers. Idempotent upsert-by-UUID sync. Review gates on anything ingested.
+> **Guardrails, learned the hard way** — deterministic math separated from generation, auditable
+> reference data instead of asking a model for numbers, idempotent upsert-by-UUID sync, and review
+> gates on anything ingested.
 
 ---
 
 ## Projects
 
-**[StreamLens](https://github.com/C0deRatoR/StreamLens)** — hybrid recommender on MovieLens (33M ratings, 86k movies, 330k users).
-TF-IDF content filtering + SVD collaborative filtering in a configurable 70/30 blend, evaluated on RMSE, MAE, and Precision/Recall/NDCG@K. FastAPI serving in 0.08–0.25s.
-<sub>Python · FastAPI · scikit-learn · Pandas</sub>
+**[StreamLens](https://github.com/C0deRatoR/StreamLens)** — hybrid recommender on MovieLens (33M ratings · 86k movies · 330k users)  
+TF-IDF content filtering and SVD collaborative filtering in a configurable 70/30 blend, evaluated on
+RMSE, MAE, and Precision/Recall/NDCG@K. FastAPI serving in 0.08–0.25s.  
+`Python` `FastAPI` `scikit-learn` `Pandas`
 
-**[Call Analyzer](https://github.com/C0deRatoR/call-analyzer)** — upload a call, get a transcript, speaker breakdown, sentiment timeline, and coaching notes.
-Whisper transcription, KeyBERT keywords, VADER + HuggingFace emotion timeline, Gemini coaching, PDF export. pytest/mypy/flake8 in CI.
-<sub>Python · Flask · Whisper · HuggingFace · Gemini</sub>
+**[Call Analyzer](https://github.com/C0deRatoR/call-analyzer)** — upload a call, get back what happened in it  
+Transcript, speaker breakdown, sentiment timeline, and coaching notes: Whisper transcription, KeyBERT
+keywords, VADER + HuggingFace emotion timeline, Gemini coaching, PDF export. pytest/mypy/flake8 in CI.  
+`Python` `Flask` `Whisper` `HuggingFace` `Gemini`
 
-**[AI Interview Coach](https://github.com/C0deRatoR/Ai-InterviewCoach)** — three-agent adaptive mock interviewer.
-Six turns, each answer scored on structure, specificity, depth, and communication; the next question adapts — probe, redirect, hint, change topic, raise difficulty. Ends with strengths, gaps, three practice tasks, one rewritten answer.
-<sub>Python · FastAPI · LangChain · OpenAI · Next.js</sub>
+**[AI Interview Coach](https://github.com/C0deRatoR/Ai-InterviewCoach)** — three-agent adaptive mock interviewer  
+Six turns; each answer scored on structure, specificity, depth, and communication, and the next
+question adapts — probe, redirect, hint, change topic, raise difficulty. Ends with strengths, gaps,
+three practice tasks, and one rewritten answer.  
+`Python` `FastAPI` `LangChain` `OpenAI` `Next.js`
 
-**[DocuChat](https://github.com/C0deRatoR/DocuChat)** — multi-document RAG over PDF, TXT, and DOCX.
-sentence-transformers + FAISS + LangChain + Gemini, with source-chunk citations and conversation memory. Dockerised.
-<sub>Python · LangChain · FAISS · Gemini · Docker</sub>
+**[DocuChat](https://github.com/C0deRatoR/DocuChat)** — multi-document RAG over PDF, TXT, and DOCX  
+sentence-transformers + FAISS + LangChain + Gemini, with source-chunk citations and conversation
+memory. Dockerised.  
+`Python` `LangChain` `FAISS` `Gemini` `Docker`
 
-**[Discord TTS Bot](https://github.com/C0deRatoR/discord-tts-bot)** — neural voice cloning with a dual TTS engine.
-Coqui + ElevenLabs on CUDA: ~0.5s warmed, under 0.1s cached. Async queue, usage analytics, P50/P95/P99 benchmark CLI.
-<sub>Python · PyTorch · Coqui · ElevenLabs · CUDA</sub>
+**[Discord TTS Bot](https://github.com/C0deRatoR/discord-tts-bot)** — neural voice cloning on a dual TTS engine  
+Coqui + ElevenLabs on CUDA: ~0.5s warmed, under 0.1s cached. Async queue, usage analytics, and a
+P50/P95/P99 benchmark CLI.  
+`Python` `PyTorch` `Coqui` `ElevenLabs` `CUDA`
 
 ---
 
@@ -77,14 +96,16 @@ LLM/voice pipelines and code-graph parsers.
 
 ## Stack
 
-- **Languages** — Python · TypeScript · SQL · Bash
-- **ML/DL** — PyTorch · scikit-learn · HuggingFace · XGBoost · YOLOv8
-- **GenAI** — LangChain · pgvector · FAISS · Voyage AI · Gemini · Claude · OpenAI · Ollama
-- **Voice** — LiveKit · Deepgram · Whisper · ElevenLabs · Coqui
-- **Backend** — FastAPI · Fastify · Flask · Drizzle · Prisma
-- **Web** — Next.js · React · Vite · Tailwind
-- **Data** — Postgres · Supabase · Neon · Pandas · NumPy
-- **Infra** — Docker · Vercel · GitHub Actions · Linux (Arch) · Nginx · Grafana
+| | |
+|:--|:--|
+| **Languages** | `Python` `TypeScript` `SQL` `Bash` |
+| **ML/DL** | `PyTorch` `scikit-learn` `HuggingFace` `XGBoost` `YOLOv8` |
+| **GenAI** | `LangChain` `pgvector` `FAISS` `Voyage AI` `Gemini` `Claude` `OpenAI` `Ollama` |
+| **Voice** | `LiveKit` `Deepgram` `Whisper` `ElevenLabs` `Coqui` |
+| **Backend** | `FastAPI` `Fastify` `Flask` `Drizzle` `Prisma` |
+| **Web** | `Next.js` `React` `Vite` `Tailwind` |
+| **Data** | `Postgres` `Supabase` `Neon` `Pandas` `NumPy` |
+| **Infra** | `Docker` `Vercel` `GitHub Actions` `Linux (Arch)` `Nginx` `Grafana` |
 
 ---
 
@@ -93,8 +114,8 @@ LLM/voice pipelines and code-graph parsers.
 Self-hosted server on Proxmox VE — Jellyfin, Nextcloud, Ollama with GPU passthrough, and
 Grafana + Prometheus, all containerised behind an Nginx reverse proxy. SSH hardened, 99% uptime.
 
----
+<br>
 
-## Elsewhere
-
-AMD × Google Slingshot Hackathon — **#10 / 300** · Mastercard Cybersecurity Simulation (Forage) · 5+ AI/ML hackathons
+<p align="center">
+  <sub>AMD × Google Slingshot Hackathon <strong>#10 / 300</strong> · Mastercard Cybersecurity Simulation (Forage) · 5+ AI/ML hackathons</sub>
+</p>
