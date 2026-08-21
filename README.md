@@ -46,10 +46,13 @@ Gemini OCR turning photographed cards into structured records, meeting-note extr
 inference as the fallback when OCR misses fields. Document pipelines on scheduled CI.  
 `Gemini` `pdfplumber` `Dexie` `GitHub Actions`
 
-**Agentic automation**  
-Webhook-driven state machines that qualify before they answer, RAG-backed first-touch replies,
-n8n orchestration, Playwright scraping for corpus building.  
-`n8n` `Playwright` `Fastify` `Webhooks`
+**Agentic automation & outreach loops**  
+Webhook-driven state machines that qualify before they answer, RAG-backed first-touch replies, and
+n8n orchestration. Inbound replies get parsed into structured field diffs a human confirms rather
+than free text someone re-types, and an idempotent follow-up scheduler reads reply direction to
+nudge at four days, escalate at ten, then mark dormant — guarded on open tasks so a re-run never
+double-schedules.  
+`n8n` `Playwright` `Fastify` `Webhooks` `Vercel Cron`
 
 > **Guardrails, learned the hard way** — deterministic math separated from generation, auditable
 > reference data instead of asking a model for numbers, idempotent upsert-by-UUID sync, and review
