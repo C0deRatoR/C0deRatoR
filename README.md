@@ -1,19 +1,40 @@
 # Yash Patil
 
-2nd-year B.Tech AI & ML student at Atlas SkillTech, Mumbai.
+B.Tech CS (AI & ML) student.
 I build things that ship, like RecSys on 33M records, audio intelligence
 platforms, RAG pipelines, computer vision apps.
 
-Currently: shipping production tools — hiring pipeline, order tracking, admin dashboards — for a manufacturing company.
+Currently: an AI engineering internship — shipping production RAG, voice agents, and LLM scoring pipelines.
 
 ---
 
-## Open Source Contributions
+## Production AI Work
 
-- [rtk-ai/rtk #2986](https://github.com/rtk-ai/rtk/pull/2986) — Replaced live HTTP calls in the benchmark suite with local fixtures for deterministic, flake-free runs.
-- [LobsterTrap/lola #220](https://github.com/LobsterTrap/lola/pull/220) — Added support for `lola.yml` as an alternate module-config filename, preserving `lola.yaml` precedence.
-- [dariushoule/x64dbg-automate-pyclient #21](https://github.com/dariushoule/x64dbg-automate-pyclient/pull/21) — Fixed a connection leak: the client now closes its ZMQ connection when a plugin-version handshake fails.
-- [livekit/agents #6398](https://github.com/livekit/agents/pull/6398) — Fixed Gemma reasoning-marker tokens leaking into TTS/transcripts/chat history; added a stateful streaming filter that handles markers split across chunks.
+A year of internship work. The repos are private, so this is what I actually built, by capability.
+
+**RAG in production**
+Fastify + pgvector retrieval API with Voyage AI embeddings and grounded, source-constrained answers.
+Deterministic math kept *outside* the model — the LLM writes the summary, never the numbers.
+Namespace-isolated corpora for two separate product lines. Review-gated ingestion of a scraped corpus. Eval scripting for retrieval quality.
+
+**Voice agents**
+Python LiveKit Cloud worker: Deepgram/Sarvam STT → Gemini/Groq LLM → ElevenLabs TTS, driving a structured multi-turn qualification flow.
+STT endpointing and latency tuning (`endpointing_ms` sweeps, provider normalisation, transcript-preview logging), Hindi/Hinglish handling.
+Region-aware persistence — the worker POSTs to an API instead of dialling Postgres cross-region.
+
+**LLM scoring & evaluation**
+Applicant scoring 0–100 across five dimensions, role-specific question banks, experience-gated ranking, automated decision flows behind explicit guards.
+
+**Multimodal extraction**
+Gemini OCR turning photographed cards into structured records, plus meeting-note extraction, with conservative offline inference as the fallback when OCR misses fields.
+Deepgram voice-note capture. `pdfplumber` + `reportlab` document pipelines running on scheduled CI.
+
+**Agentic automation**
+Webhook-driven state machines that qualify before they answer, RAG-backed first-touch replies, n8n workflow orchestration, Playwright scraping for corpus building.
+
+**Guardrails, learned the hard way**
+Deterministic math separated from generation. Auditable reference data (central-bank FX) instead of asking a model for numbers.
+Idempotent upsert-by-UUID sync RPCs. Review gates on anything ingested. Disposable QA data deleted after verification.
 
 ---
 
@@ -54,6 +75,21 @@ pytest + mypy + flake8 CI enforced. Under 2s API response on 100MB audio.
 
 ---
 
+### [AI Interview Coach](https://github.com/C0deRatoR/Ai-InterviewCoach) — Adaptive Three-Agent Mock Interviewer
+Enter a target role, optional background, and a focus area (behavioural, technical, case, or mixed); the coach runs a six-turn interview.
+Each answer is scored on structure, specificity, depth, and communication, and the next question adapts — probe, redirect, hint, change topic, or raise difficulty.
+Ends with strengths, gaps, three practice tasks, and one rewritten answer.
+Ships both a Next.js web interface and a CLI, with a `unittest` suite over the orchestration controller.
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
+![OpenAI API](https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+
+---
+
 ### [DocuChat](https://github.com/C0deRatoR/DocuChat) — RAG Document Q&A
 Multi-document RAG pipeline: HuggingFace sentence-transformers + FAISS + LangChain + Gemini.
 Supports PDF, TXT, and DOCX. Source-chunk citations, conversation memory, Dockerised deployment.
@@ -65,20 +101,6 @@ Supports PDF, TXT, and DOCX. Source-chunk citations, conversation memory, Docker
 ![Gemini API](https://img.shields.io/badge/Gemini_API-8E75B2?style=flat-square&logo=googlegemini&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-
----
-
-### [VisionTrack](https://github.com/C0deRatoR/VisionTrack) — Real-Time Object Detection
-YOLOv8n inference on uploaded images and live webcam feed via Streamlit.
-Confidence threshold slider, class filter, batch processing, exportable annotated results.
-Multi-stage Docker build with 60% image size reduction.
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![YOLOv8](https://img.shields.io/badge/YOLOv8-555?style=flat-square)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Pillow](https://img.shields.io/badge/Pillow-555?style=flat-square)
 
 ---
 
@@ -101,13 +123,18 @@ Smart async queue, usage analytics, CLI benchmark measuring P50/P95/P99 latency.
 
 ```python
 stack = {
-    "languages"  : ["Python", "SQL", "Java", "Bash"],
+    "languages"  : ["Python", "TypeScript", "SQL", "Java", "Bash"],
     "ml_dl"      : ["scikit-learn", "PyTorch", "XGBoost", "LightGBM", "YOLOv8", "HuggingFace"],
-    "genai"      : ["LangChain", "FAISS", "Whisper", "Gemini API", "Ollama"],
-    "backend"    : ["FastAPI", "Flask"],
-    "devops"     : ["Docker", "Docker Compose", "Linux (Arch)", "Nginx", "Grafana", "Git"],
-    "data"       : ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly"],
-    "cloud"      : ["Azure", "GCP", "Streamlit Cloud"],
+    "genai"      : ["LangChain", "pgvector", "FAISS", "Voyage AI", "Whisper",
+                    "Gemini API", "Claude API", "OpenAI API", "Groq", "Ollama"],
+    "voice"      : ["LiveKit", "Deepgram", "Sarvam", "ElevenLabs", "Coqui TTS"],
+    "backend"    : ["FastAPI", "Flask", "Fastify", "Drizzle", "Prisma"],
+    "web"        : ["Next.js", "React", "Vite", "Tailwind", "PWA / offline (Dexie)"],
+    "data"       : ["Postgres", "Supabase", "Neon", "Pandas", "NumPy", "Matplotlib", "Plotly"],
+    "testing"    : ["pytest", "Vitest", "Playwright", "mypy", "ruff"],
+    "devops"     : ["Docker", "Docker Compose", "Vercel", "GitHub Actions", "n8n",
+                    "Linux (Arch)", "Nginx", "Grafana", "Git"],
+    "cloud"      : ["Azure", "GCP", "AWS (S3, Textract, Comprehend)"],
 }
 ```
 
@@ -133,6 +160,18 @@ SSH hardened · 99% uptime across 4+ concurrent services.
 - AMD x Google Slingshot Hackathon — **#10 / 300**
 - Mastercard Cybersecurity Simulation · Forage
 - 5+ AI/ML Hackathons · Devpost
+
+---
+
+## Open Source
+
+Merged fixes upstream in [livekit/agents](https://github.com/livekit/agents/pull/6398),
+[pipecat](https://github.com/pipecat-ai/pipecat/pull/5027),
+[langwatch/scenario](https://github.com/langwatch/scenario/pull/841),
+[lola](https://github.com/LobsterTrap/lola/pull/220), and
+[CodeGraphContext](https://github.com/CodeGraphContext/CodeGraphContext/pull/1643)
+([×2](https://github.com/CodeGraphContext/CodeGraphContext/pull/1540)) — mostly small correctness
+bugs in LLM/voice pipelines and code-graph parsers.
 
 ---
 
