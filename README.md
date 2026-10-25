@@ -62,6 +62,13 @@ double-schedules.
 
 ## Projects
 
+**[Ivy](https://github.com/C0deRatoR/ivy)** — self-hosted AI home assistant on a revived 2012 PC  
+A Telegram bot that runs the house through LLM tool calling: smart lights and the TV box via Home Assistant,
+AdGuard DNS blocking served to every device over Tailscale, Jellyfin, server health, notes and reminders.
+Any OpenAI-compatible model with ordered fallbacks, every tool argument validated, confirmation only for
+risky actions, a bounded agent loop, and no ports open to the internet.  
+`Python` `OpenAI SDK` `Home Assistant` `Docker` `Tailscale`
+
 **[StreamLens](https://github.com/C0deRatoR/StreamLens)** — hybrid recommender on MovieLens (33M ratings · 86k movies · 330k users)  
 TF-IDF content filtering and SVD collaborative filtering in a configurable 70/30 blend, evaluated on
 RMSE, MAE, and Precision/Recall/NDCG@K. FastAPI serving in 0.08–0.25s.  
@@ -119,8 +126,9 @@ LLM/voice pipelines and code-graph parsers.
 
 ## Home Lab
 
-Self-hosted server on Proxmox VE — Jellyfin, Nextcloud, Ollama with GPU passthrough, and
-Grafana + Prometheus, all containerised behind an Nginx reverse proxy. SSH hardened, 99% uptime.
+A revived 2012 i3 PC running headless Debian 13 — AdGuard Home (HaGeZi Pro, served to every device
+over Tailscale DNS), Jellyfin, Home Assistant and Samba in Docker, all driven by [Ivy](https://github.com/C0deRatoR/ivy).
+Keys-only SSH, ufw firewall, automatic security updates, and no ports open to the internet.
 
 <br>
 
